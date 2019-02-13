@@ -1,0 +1,30 @@
+.tab-pane {
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+.container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+table {
+    min-width: 450px;
+}
+
+.medium-column{
+    min-width: 120px;
+}
+
+.long-column {
+    min-width: 150px;
+}
+
+form {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.choice{
+    background-color: black;
+}
