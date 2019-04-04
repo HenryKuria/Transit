@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DjangoModelDependency</ID>
+  <OriginalElement>#transitResSystem</OriginalElement>
+  <nodes>
+    <node x="21.99999999999997" y="332.0">home.models.Seat</node>
+    <node x="195.99999999999997" y="332.0">home.models.Ticket</node>
+    <node x="109.91666666666666" y="249.0">home.models.Trip</node>
+    <node x="4.0" y="83.0">home.models.Route</node>
+    <node x="54.75" y="0.0">home.models.Place</node>
+    <node x="0.0" y="410.0">payments.models.Payment</node>
+    <node x="193.0" y="166.0">home.models.TravelTime</node>
+    <node x="0.0" y="166.0">home.models.Vehicle</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="home.models.Ticket" target="home.models.Trip">
+      <point x="2.8421709430404007E-14" y="-16.5" />
+      <point x="277.5" y="307.0" />
+      <point x="221.66666666666666" y="307.0" />
+      <point x="37.25" y="16.5" />
+    </edge>
+    <edge source="home.models.Vehicle" target="home.models.Route">
+      <point x="0.0" y="-16.5" />
+      <point x="0.0" y="16.5" />
+    </edge>
+    <edge source="home.models.Trip" target="home.models.Vehicle">
+      <point x="-49.66666666666666" y="-16.5" />
+      <point x="134.75" y="224.0" />
+      <point x="86.0" y="224.0" />
+      <point x="0.0" y="16.5" />
+    </edge>
+    <edge source="home.models.Trip" target="home.models.Place">
+      <point x="0.0" y="-16.5" />
+      <point x="184.41666666666666" y="224.0" />
+      <point x="182.5" y="224.0" />
+      <point x="182.5" y="58.0" />
+      <point x="174.0" y="58.0" />
+      <point x="39.75" y="16.5" />
+    </edge>
+    <edge source="home.models.Seat" target="home.models.Trip">
+      <point x="0.0" y="-16.5" />
+      <point x="98.99999999999997" y="307.0" />
+      <point x="147.16666666666666" y="307.0" />
+      <point x="-37.25" y="16.5" />
+    </edge>
+    <edge source="home.models.Trip" target="home.models.TravelTime">
+      <point x="49.666666666666686" y="-16.5" />
+      <point x="234.08333333333334" y="224.0" />
+      <point x="290.5" y="224.0" />
+      <point x="0.0" y="16.5" />
+    </edge>
+    <edge source="home.models.Route" target="home.models.Place">
+      <point x="0.0" y="-16.5" />
+      <point x="86.0" y="58.0" />
+      <point x="94.5" y="58.0" />
+      <point x="-39.75" y="16.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="315.0" y="197.0" />
+  <SelectedNodes />
+  <Categories />
+</Diagram>
+
