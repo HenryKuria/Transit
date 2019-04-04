@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg"></div>
+            <div class="col-lg-8">
+                <div class="card card-primary border-primary text-center">
+                    <div class="card-header bg-primary text-light">
+                        Your Ticket
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md"></div>
+                            <div class="col-md-8">
+                                <div class="alert alert-light border-dark">
+                                    <h2 class="alert-heading text-center">Ticket</h2>
+                                    <hr>
+                                    <div class="row">
+                                        <span class="col-sm-5">
+                                            <strong>Name</strong>&nbsp;
+                                        </span>
+                                        <span class="col-sm-7">{{ ticket.client_name }}</span>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <span class="col-sm-5">
+                                            <strong>Phone Number</strong>&nbsp;
+                                        </span>
+                                        <span class="col-sm-7">0{{ ticket.telephone }}</span>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <span class="col-sm-5">
+                                            <strong>Departure Time</strong>&nbsp;
+                                        </span>
+                                        <span class="col-sm-7">{{ ticket.trip.departure }}</span>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <span class="col-sm-5">
+                                            <strong>Vehicle</strong>&nbsp;
+                                        </span>
+                                        <span class="col-sm-7">{{ ticket.trip.vehicle.plate }}</span>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <span class="col-sm-5">
+                                            <strong>Route</strong>&nbsp;
+                                        </span>
+                                        <span class="col-sm-7">{{ ticket.trip.start }} to {{ ticket.trip.end }}</span>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <span class="col-sm-5">
+                                            <strong>Seat Number</strong>&nbsp;
+                                        </span>
+                                        <span class="col-sm-7">{{ ticket.seat }}</span>
+                                    </div>
+                                    <hr> &nbsp;&nbsp;
+                                    <h5 class="alert-heading">Edge</h5>
+                                </div>
+                            </div>
+                            <div class="col-md"></div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-sm col-md"></div>
+                            <div class="col-sm-4 col-md-5">
+                                <a class="btn btn-primary" href="{% url 'home:download' ticket.id %}">
+                                    <i class="fa fa-download"></i>&nbsp; Download Ticket
+                                </a>
+                            </div>
+                            &nbsp;
+                            <div class="col-sm-4 col-md-5">
+                                <a href="{% url 'home:home' %}" class="btn btn-light border-primary text-primary">
+                                    <i class="fa fa-arrow-circle-left"></i>&nbsp; Go Back Home
+                                </a>
+                            </div>
+                            <div class="col-sm col-md"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg"></div>
+        </div>
+    </div>
+
+{% endblock %}
