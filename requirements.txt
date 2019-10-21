@@ -19,7 +19,7 @@ decorator==4.0.6
 defer==1.0.6
 dirspec==13.10
 dj-database-url==0.5.0
-Django==2.1.7
+Django==2.1.11
 django-appconf==1.0.2
 django-ckeditor==5.6.1
 django-classy-tags==0.8.0
