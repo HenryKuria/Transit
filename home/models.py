@@ -36,7 +36,7 @@ class Vehicle(models.Model):
 
 class Trip(models.Model):
     date = models.DateField(auto_now=True)
-    departure = models.ForeignKey(TravelTime, related_name='trip_dept', on_delete=models.DO_NOTHING)
+    departure = models.ForeignKey(TravelTime, related_name='trips', on_delete=models.DO_NOTHING)
     start = models.ForeignKey(Place, related_name="trip_start", on_delete=models.CASCADE)
     end = models.ForeignKey(Place, related_name="trip_end", on_delete=models.CASCADE)
     vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)

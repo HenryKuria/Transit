@@ -59,7 +59,7 @@
                         </div>
                         <div class="form-group">
                             <label for="phone" class="col-form-label-sm">Phone Number</label>
-                            <input name="telephone" class="form-control form-control-sm" placeholder="Enter your number..." type="text" required>
+                            <input name="telephone" class="form-control form-control-sm" placeholder="Enter your number..." type="number" required>
                         </div>
                         <div class="form-group">
                             <label for="phone" class="col-form-label-sm">Pick A Seat</label>
@@ -71,6 +71,7 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <p>For purposes of demonstration, use 'AAAAAA' or 'BBBBBB' or 'CCCCCC' or 'DDDDDD' as payment code.</p>
                             <label for="code" class="col-form-label-sm">Code</label>
                             <input name="code" class="form-control form-control-sm" placeholder="Enter your payment code..." type="text" required>
                             {% if messages %}

@@ -22,16 +22,38 @@
                         <div class="col"></div>
                         <div class="col-9">
                             <form method="POST" enctype="multipart/form-data" class="form">
-                                {% for field in form %}
-                                    <div class="form-group col-xs col-md col-lg">
-                                        {% csrf_token %}
-                                        <label class="form-control-label">{{ field.label_tag }}</label>
-                                        &nbsp;
-                                        <span class="form-control border-primary mr-sm">
-                                            {{ field }}
-                                        </span>
-                                    </div>
-                                {% endfor %} &nbsp;
+                                {% csrf_token %}
+
+                                <div class="form-group col-xs col-md col-lg">
+                                    <label class="form-control-label">Time</label>
+                                    <select name="time" class="form-control form-control-sm" required>
+                                        <option value="">Pick a departure time...</option>
+                                        {% for time in available_times %}
+                                            <option value="{{ time.id }}">{{ time }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-xs col-md col-lg">
+                                    <label class="form-control-label">From</label>
+                                    <select name="start" class="form-control form-control-sm" required>
+                                        <option value="">Pick a departure point ...</option>
+                                        {% for place in available_places %}
+                                            <option value="{{ place.id }}">{{ place }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-xs col-md col-lg">
+                                    <label class="form-control-label">Destination</label>
+                                    <select name="end" class="form-control form-control-sm" required>
+                                        <option value="">Pick a departure point ...</option>
+                                        {% for place in available_places %}
+                                            <option value="{{ place.id }}">{{ place }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
                                 <div class="input-group justify-content-center col-xs">
                                     <button class="btn border-light text-light bg-primary" type="submit">
                                         <i class="fa fa-search"></i>&nbsp;Search

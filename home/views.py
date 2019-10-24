@@ -3,19 +3,19 @@ from django.views.generic import View
 from reportlab.pdfgen import canvas
 from payments.models import Payment
 from django.contrib import messages
-from .forms import TicketForm, FindForm
+from .forms import TicketForm
 from .models import Trip, TravelTime, Ticket, Seat, Place
 from io import BytesIO
 
 
 class IndexView(View):
-    form_class = FindForm
     template_name = 'index.html'
 
     def get(self, request):
-        form = self.form_class(None)
-
-        context = {'form': form}
+        context = {
+            'available_times': [time for time in TravelTime.objects.all() if len(time.trips.all()) > 0],
+            'available_places': [place for place in Place.objects.all() if len(place.trip_start.all()) > 0 or len(place.trip_end.all()) > 0]
+        }
 
         return render(request, self.template_name, context)
 
@@ -28,13 +28,15 @@ class IndexView(View):
 
 
 class FindTripView(View):
-    form_class = FindForm
     template_name = 'index.html'
 
     def get(self, request, **kwargs):
-        form = self.form_class(None)
 
-        context = {'form': form}
+        context = {
+            'available_times': [time for time in TravelTime.objects.all() if len(time.trips.all()) > 0],
+            'available_places': [place for place in Place.objects.all() if len(place.trip_start.all()) > 0 or
+                                 len(place.trip_end.all()) > 0]
+        }
 
         if kwargs['start'] != kwargs['end']:
             departure = TravelTime.objects.get(id=kwargs['time'])
@@ -50,12 +52,12 @@ class FindTripView(View):
                     end=end
                 )]
 
-                context = {
-                    'form': form,
-                    'trips': trips,
-                }
+                context['trips'] = trips
+
             else:
                 messages.error(request, 'Sorry. Trips not Available')
+        else:
+            messages.error(request, 'Sorry. You have to chose a different destination')
 
         return render(request, self.template_name, context)
 
