@@ -13,7 +13,7 @@ checkbox-support==0.22
 chrome-gnome-shell==0.0.0
 cmsplugin-filer==1.1.3
 command-not-found==0.3
-cryptography==1.2.3
+cryptography==3.2
 cycler==0.10.0
 decorator==4.0.6
 defer==1.0.6
